@@ -19,9 +19,15 @@ function! LoadSession()
 endfunction
 
 function! CreateSession()
-    let session_path = '.vim-session'
+    if AnyGitBuffers() == 0
+        let session_path = '.vim-session'
 
-    :execute "mksession!" fnameescape(session_path)
+        :execute "mksession!" fnameescape(session_path)
+    endif
+endfunction
+
+function! AnyGitBuffers()
+    return len(filter(range(bufnr('$')), 'getbufvar(1+v:val, "&ft", "")=~"^git"'))
 endfunction
 
 if argc() == 0
