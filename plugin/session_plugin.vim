@@ -1,6 +1,6 @@
 " Author: Alex Shenoy
 "
-" Session Stuff. Consider Making this a vim plugin
+" Session Stuff.
 
 set sessionoptions-=options
 set sessionoptions-=buffers
